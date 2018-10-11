@@ -1,0 +1,102 @@
+% % % packages -----------------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{fontspec}
+\usepackage[left = 2.5cm, right = 2.5cm, top = 1.2cm, bottom = 1.2cm, includeheadfoot]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage{tabularx} 
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{xcolor, colortbl}
+
+% % % settings -----------------------------------------------------------------------------------
+
+% % custom colors
+\definecolor{color1}{HTML}{2b4894}
+\definecolor{color2}{HTML}{d4dbde}
+
+
+% % fonts 
+\defaultfontfeatures{Mapping = tex-text}
+\setmainfont[BoldFont = Lato-Bold.ttf, ItalicFont = Lato-Italic.ttf, BoldItalicFont = Lato-BoldItalic.ttf]{Lato-Regular.ttf}
+\newfontfamily\headingfont[ItalicFont = Lato-BlackItalic.ttf]{Lato-Black.ttf}
+
+
+% % sections
+\titleformat{\section}{\color{color1}\headingfont\Large\bfseries}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\color{color1}\headingfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\color{color1}\headingfont\bfseries}{\thesubsubsection}{1em}{}
+
+% % misc
+\setlength{\parindent}{0em} 
+\linespread{1}
+\raggedright
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+
+% % % custom titlepage ----------------------------------------------------------------------------
+\newcommand\BackgroundPic{%
+	\put(0,0){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\vfill
+			\centering
+			\includegraphics[width=\paperwidth,height=\paperheight]{cover}%
+			\vfill
+}}}
+
+\makeatletter
+
+% pagestyle titlepage
+\fancypagestyle{customtitle}{
+	\lhead{}
+	\chead{}
+	\rhead{}
+	\makeatother
+	\lfoot{}
+	\cfoot{}
+	\rfoot{\includegraphics{logo.png}}
+}
+
+
+% titlepage
+\renewcommand{\maketitle}{
+	\thispagestyle{customtitle}
+	\AddToShipoutPicture*{\BackgroundPic}
+	\ClearShipoutPicture
+	
+	\phantom{a}\hfill
+	\vspace{14cm}
+	
+	\begin{tabular}[l]{@{}p{\textwidth}@{}}
+		\color{color1}\headingfont\LARGE\@title\\[1em]
+		\color{color1}\headingfont\large\@author\\[1em]
+		\color{color1}\headingfont\small\@date\\[1em]
+	\end{tabular}
+	
+	
+	
+	\clearpage
+}
+\makeatother
+
+% % % header and footer ---------------------------------------------------------------------------
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{ \includegraphics{logo.png}}
+\makeatother
+\newlength{\myheight}
+\lfoot{}
+\cfoot{}
+\rfoot{Page \thepage \hspace{1pt} / \pageref{LastPage}}
+\renewcommand\headrulewidth{0pt}
+\renewcommand\footrulewidth{0pt}
+
+
