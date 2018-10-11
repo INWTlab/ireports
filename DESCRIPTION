@@ -3,9 +3,9 @@ Type: Package
 Title: INWTlab Latex Report Template
 Description: Comprises an latex / rmarkdown report template.
 Version: 0.10.0
-Author: INWT Statistics GmbH
-Maintainer: INWT <info@inwt-statistics.de>
-License: undefined
+Author: Sarah Wagner, Karol Kozioł
+Maintainer: Sarah Wagner <sarah.wagner@inwt-statistics.de>
+License: GPL-3 + file LICENSE
 Depends:
   R (>= 3.3.3)
 Imports:
