@@ -2,6 +2,9 @@
 title: Document Title
 author: INWTlab 
 date: \today
+params:
+  logo: TRUE
+  cover: TRUE
 documentclass: article
 fontsize: 10
 papersize: a4paper

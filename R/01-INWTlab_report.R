@@ -22,12 +22,12 @@ INWTlab_report <- function(template = "INWTlab", ...) {
     else stop("Pandoc Version has to be >=1.17.0.2")
 
     template <- system.file(
-      paste0("template_files/template/", latex_template),
+      paste0("rmarkdown/templates/INWTlab_report/", latex_template),
       package = "LatexReportTemplate")
 
     # # Copy required tex/rmd files to Rmd Working Directory
 
-    path <- system.file("template_files/template/resources",
+    path <- system.file("rmarkdown/templates/INWTlab_report/skeleton/",
       package = "LatexReportTemplate")
     filesToCopy <- lapply(path, list.files, full.names = FALSE)
 
