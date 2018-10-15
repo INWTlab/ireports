@@ -2,6 +2,9 @@
 This package provides a latex template for reports loosly oriented at MS Word defaults.
 The cover page, the logo and the colors used can easily be customized.
 
+![Default Cover](preview_cover.png){width=350px}
+![Default Page](preview_page.png){width=350px}
+
 ## Installation 
 Install the package latex-report-template from GitHub. 
 ```r
