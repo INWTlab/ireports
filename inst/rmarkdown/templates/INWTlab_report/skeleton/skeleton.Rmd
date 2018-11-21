@@ -3,8 +3,8 @@ title: Document Title
 author: INWTlab 
 date: \today
 params:
-  logo: TRUE
-  cover: TRUE
+  logo: logo.png
+  cover: cover.png
 documentclass: article
 fontsize: 10
 papersize: a4paper
@@ -12,6 +12,9 @@ output:
   LatexReportTemplate::INWTlab_report:
     keep_tex: true
     latex_engine: xelatex
+header-includes: 
+  - \newcommand{\logo}{`r gsub("_", "\\_", params$logo)`}
+  - \newcommand{\cover}{`r gsub("_", "\\_", params$cover)`}
 ---
 
 
