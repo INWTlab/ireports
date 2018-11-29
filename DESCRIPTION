@@ -9,6 +9,8 @@ Version: 0.11.0
 Author: Sarah Wagner, Karol Kozioł
 Maintainer: Sarah Wagner <sarah.wagner@inwt-statistics.de>
 License: GPL-3 + file LICENSE
+BugReports: https://github.com/INWTlab/ireports/issues
+URL: http://github.com/INWTlab/ireports
 Depends:
   R (>= 3.4.0)
 Imports:
