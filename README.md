@@ -25,7 +25,7 @@ Install the package latex-report-template from GitHub.
 
 ```r
 # install.packages("devtools")
-devtools::install_github(INWTlab/latex-report-template)
+devtools::install_github(INWTlab/ireports)
 ```
 
 ## Preview
