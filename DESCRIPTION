@@ -1,13 +1,16 @@
-Package: LatexReportTemplate
+Package: IReports
 Type: Package
-Title: INWTlab Latex Report Template
-Description: Comprises an latex / rmarkdown report template.
-Version: 0.10.0
+Title: INWTlab Templates for Business Reports
+Description: This R package provides a LaTeX and RMarkdown template suitable for business
+  reports. The design and layout is loosly oriented at MS Word defaults. In the
+  YAML header of the RMarkdown template, you can easily customize the colors,
+  logos and cover page.
+Version: 0.11.0
 Author: Sarah Wagner, Karol Kozioł
 Maintainer: Sarah Wagner <sarah.wagner@inwt-statistics.de>
 License: GPL-3 + file LICENSE
 Depends:
-  R (>= 3.3.3)
+  R (>= 3.4.0)
 Imports:
   dplyr,
   DT,

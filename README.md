@@ -19,9 +19,6 @@ papersize: a4paper
 ...
 ```
 
-![preview cover](./inst/resources/preview_cover.png)
-![preview page](./inst/resources/preview_page.png)
-
 ## Installation
 
 Install the package latex-report-template from GitHub. 
@@ -30,6 +27,11 @@ Install the package latex-report-template from GitHub.
 # install.packages("devtools")
 devtools::install_github(INWTlab/latex-report-template)
 ```
+
+## Preview
+
+![preview cover](./inst/resources/preview_cover.png)
+![preview page](./inst/resources/preview_page.png)
 
 
 

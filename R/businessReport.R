@@ -1,14 +1,18 @@
-#' Report (PDF)
+#' Business Report (PDF)
 #'
+#' This function can be used to render the INWTlab business report. The design
+#' and layout is loosly oriented at MS Word defaults.
+#' 
 #' @inheritParams rmarkdown::pdf_document
 #' @param template character; Pandoc template to use for rendering. Pass
 #' \code{"INWTlab"} to use the default example template
 #' @param ... further arguments passed to \code{\link[rmarkdown]{pdf_document}}
+#' 
 #' @details The function serves as wrapper to \code{\link[rmarkdown]{pdf_document}}
 #' only steering the selection of the template.
 #'
 #' @export
-INWTlab_report <- function(template = "INWTlab", ...) {
+businessReport <- function(template = "INWTlab", ...) {
 
   # The following code is taken from rmarkdown::pdf_document() (v1.1)
   # template path and assets
@@ -22,13 +26,12 @@ INWTlab_report <- function(template = "INWTlab", ...) {
     else stop("Pandoc Version has to be >=1.17.0.2")
 
     template <- system.file(
-      paste0("rmarkdown/templates/INWTlab_report/", latex_template),
-      package = "LatexReportTemplate")
+      paste0("rmarkdown/templates/business_report/", latex_template),
+      package = "IReports")
 
-    # # Copy required tex/rmd files to Rmd Working Directory
-
-    path <- system.file("rmarkdown/templates/INWTlab_report/skeleton/",
-      package = "LatexReportTemplate")
+    # Copy required tex/rmd files to Rmd Working Directory
+    path <- system.file("rmarkdown/templates/business_report/skeleton/",
+      package = "IReports")
     filesToCopy <- lapply(path, list.files, full.names = FALSE)
 
     invisible(mapply(
