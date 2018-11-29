@@ -9,7 +9,7 @@ documentclass: article
 fontsize: 10
 papersize: a4paper
 output: 
-  LatexReportTemplate::INWTlab_report:
+  IReports::businessReport:
     keep_tex: true
     latex_engine: xelatex
 header-includes: 
