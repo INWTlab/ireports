@@ -27,11 +27,16 @@ businessReport <- function(template = "INWTlab", ...) {
 
     template <- system.file(
       paste0("rmarkdown/templates/business_report/", latex_template),
-      package = "IReports")
+      package = "IReports",
+      mustWork = TRUE
+    )
 
     # Copy required tex/rmd files to Rmd Working Directory
-    path <- system.file("rmarkdown/templates/business_report/skeleton/",
-      package = "IReports")
+    path <- system.file(
+      "rmarkdown/templates/business_report/skeleton/",
+      package = "IReports",
+      mustWork = TRUE
+      )
     filesToCopy <- lapply(path, list.files, full.names = FALSE)
 
     invisible(mapply(
