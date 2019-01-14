@@ -13,10 +13,13 @@ date: \today
 params:
   logo: logo.png
   cover: cover.png
+  colorOne: 2b4894
+  colorTwo: d4dbde
 documentclass: article
 fontsize: 10
 papersize: a4paper
 ...
+---
 ```
 
 ## Installation
