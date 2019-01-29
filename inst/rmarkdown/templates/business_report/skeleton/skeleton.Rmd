@@ -5,8 +5,8 @@ date: \today
 params:
   logo: logo.png
   cover: cover.png
-  colorOne: 2b4894
-  colorTwo: d4dbde
+  iblue: 2b4894
+  igray: d4dbde
 documentclass: article
 fontsize: 10
 papersize: a4paper
@@ -17,8 +17,8 @@ output:
 header-includes: 
   - \newcommand{\logo}{`r gsub("_", "\\_", params$logo)`}
   - \newcommand{\cover}{`r gsub("_", "\\_", params$cover)`}
-  - \newcommand{\colorOne}{`r params$colorOne`}
-  - \newcommand{\colorTwo}{`r params$colorTwo`}
+  - \newcommand{\iblue}{`r params$iblue`}
+  - \newcommand{\igray}{`r params$igray`}
 ---
 
 
@@ -52,7 +52,7 @@ tab <- xtable(head(iris, n = 20), align = "|C|C|C|C|C|C|")
 addtorow <- list()
 addtorow$pos <- list()
 addtorow$pos[[1]] <- -1
-addtorow$command <- c("\\rowcolor{colorTwo}")
+addtorow$command <- c("\\rowcolor{igray}")
 
 print(tab,
       include.rownames = FALSE,
