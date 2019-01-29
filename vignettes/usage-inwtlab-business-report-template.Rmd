@@ -1,0 +1,77 @@
+---
+title: "R Markdown Template for Business Reports"
+author: "Sarah Wagner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{R Markdown Template for Business Reports}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+In this post I'd like to introduce the R Markdown template for business reports by [INWTlab](https://github.com/INWTlab/ireports). It's been my aim to have a nice and clean template that is easy to customize in colors, cover and logo. I know there are quite a few templates available, but I was missing one to be used in a corporate environment. That is, I want to have a logo included and a cover page that also can be styled in a corporate design. In many companies nowadays MS Word is still THE reporting tool, so the overall look and feel is loosly oriented at MS Word defaults. In addition, this template can be extended by hacking the tex file `defs.tex`. In my eyes a tex file is way easier to hack - especially for not so experienced latex users - than style files (`.sty`).  
+
+
+## Installation
+You can install the package from the INWTlab Github Repository `ireports`. If you haven't installed `devtools` yet, please do that first. 
+
+```{r eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("INWTlab/ireports")
+```
+
+Once the package is installed, you can already use the template in its default version by selecting `R Markdown... > From Template > INWTlab Business Report` and then clicking `OK`.  As result a new Rmd script pops up and you can knit it right away. This is what the default report looks like:
+
+<img src="preview_cover.png" width="425"/> <img src="preview_page.png" width="425"/>   
+
+
+## Usage 
+### Text & Graphics
+You can write text and add graphics just like you would in any other R Markdown document.
+
+### Tables
+In order to generate tables in MS Word style you can use the example code snippet below. It renders a table from the iris data set.
+
+```{r eval = FALSE}
+tab <- xtable(head(iris, n = 20), align = "|C|C|C|C|C|C|")
+
+addtorow <- list()
+addtorow$pos <- list()
+addtorow$pos[[1]] <- -1
+addtorow$command <- c("\\rowcolor{colorTwo}")
+
+print(tab,
+      include.rownames = FALSE,
+      tabular.environment = "tabularx",
+      width = "\\textwidth",
+      comment = FALSE,
+      add.to.row = addtorow)
+```
+
+- First, the table creation itself. With `xtable()` I create an object `tab` of class `xtable`. Make sure to edit the align option as the number of columns changes. 
+
+- Second, the coloring of the header row. I color the header via a latex code snippet which is placed in the header of the latex table code. The `add.to.row` option in `print()` enables me to put a code snippet into the latex code wherever I like by specifying a command and a position in a separate list, here called `addtorow`. 
+
+- Third, the table printing itself. 
+
+So, when you create a new table, all you have to do is to create the xtable object `tab` in the first row, making sure that the align has the right number of columns specified.  
+
+
+## Customization
+
+### Logo and Cover
+When you create a new R Markdown file from the template, RStudio creates a new folder in your working directory (check with `getwd()`). You can overwrite `logo.png` and `cover.png` in this folder with your own files. Keep in mind to either name your files exactly like mine or to correct the file names in the yaml header. The recommended dimension for the logo is 350 x 130 pixels. The cover should have 1654 x 2339 pixels. In the case you want to use other dimensions, you need to hack the tex file `defs.tex` in order to make it look nice.
+
+### Colors
+There are currently two colors in use, namely `iblue` and `igray`. If you'd like to adopt your corporate colors, change the hexadecimal color values for `iblue` and `igray` in the yaml header.  
+
+
+## Collaboration
+You're welcome to help improve this template, just open an issue on [GitHub](https://github.com/INWTlab/ireports/issues) or send a pull request.
