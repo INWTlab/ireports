@@ -55,14 +55,15 @@ print(tab,
       add.to.row = addtorow)
 ```
 
-- First, the table creation itself. With `xtable()` I create an object `tab` of class `xtable`. Make sure to edit the align option as the number of columns changes. 
+This code snippet consists of three parts:
 
-- Second, the coloring of the header row. I color the header via a latex code snippet which is placed in the header of the latex table code. The `add.to.row` option in `print()` enables me to put a code snippet into the latex code wherever I like by specifying a command and a position in a separate list, here called `addtorow`. 
+1. The table creation. With `xtable()` I create an object `tab` of class `xtable`. Make sure to edit the align option as the number of columns changes. 
 
-- Third, the table printing itself. 
+2. The coloring of the header row. I color the header via a latex code snippet which is placed in the header of the latex table code. The `add.to.row` option in `print()` enables me to put a code snippet into the latex code wherever I like by specifying a command and a position in a separate list, here called `addtorow`. 
+
+3. The table printing itself. 
 
 So, when you create a new table, all you have to do is to create the xtable object `tab` in the first row, making sure that the align has the right number of columns specified.  
-
 
 ## Customization
 
