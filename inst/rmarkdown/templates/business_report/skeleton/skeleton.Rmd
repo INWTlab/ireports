@@ -20,6 +20,9 @@ header-includes:
   - \newcommand{\cover}{`r gsub("_", "\\_", params$cover)`}
   - \newcommand{\iblue}{`r params$iblue`}
   - \newcommand{\igray}{`r params$igray`}
+include-before:
+  - \renewcommand{\contentsname}{Inhaltsverzeichnis}
+  - \renewcommand{\pagename}{Seite}
 ---
 
 

@@ -26,6 +26,8 @@
 \definecolor{iblue}{HTML}{\iblue}
 \definecolor{igray}{HTML}{\igray}
 
+% definition of pagename
+\newcommand\pagename{Page}
 
 % % fonts 
 \defaultfontfeatures{Mapping = tex-text}
@@ -99,7 +101,7 @@
 \newlength{\myheight}
 \lfoot{}
 \cfoot{}
-\rfoot{Page \thepage \hspace{1pt} / \pageref{LastPage}}
+\rfoot{\pagename~\thepage \hspace{1pt} / \pageref{LastPage}}
 \renewcommand\headrulewidth{0pt}
 \renewcommand\footrulewidth{0pt}
 
