@@ -7,13 +7,14 @@
 #' @param template character; Pandoc template to use for rendering. Pass
 #' \code{"INWTlab"} to use the default example template
 #' @param resetStyleFiles logical; should the style files (logo, cover, defs.tex) be overwritten with the default files?
+#' @param pandoc_args character; Additional command-line arguments passed to Pandoc during document conversion.
 #' @param ... further arguments passed to \code{\link[rmarkdown]{pdf_document}}
 #' 
 #' @details The function serves as wrapper to \code{\link[rmarkdown]{pdf_document}}
 #' only steering the selection of the template.
 #'
 #' @export
-businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE,...) {
+businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE, pandoc_args = NULL, ...) {
 
   # The following code is taken from rmarkdown::pdf_document() (v1.1)
   # template path and assets
@@ -39,7 +40,6 @@ businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE,...) {
       mustWork = TRUE
       )
     
-    
     filesToCopy <- unlist(lapply(path, list.files, full.names = FALSE))
     
     # remove `skeleton.Rmd` from `filesToCopy`
@@ -60,6 +60,6 @@ businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE,...) {
   }
 
   # call the base pdf_document format with the appropriate options
-  pdf_document(template = template,  pandoc_args = c("--variable", "graphics=yes"), ...)
+  pdf_document(template = template,  pandoc_args = c(pandoc_args, "--variable", "graphics=yes"), ...)
 
 }
