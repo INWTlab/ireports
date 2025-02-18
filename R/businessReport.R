@@ -7,6 +7,7 @@
 #' @param template character; Pandoc template to use for rendering. Pass
 #' \code{"INWTlab"} to use the default example template
 #' @param resetStyleFiles logical; should the style files (logo, cover, defs.tex) be overwritten with the default files?
+#' @param pandoc_args character; Additional command-line arguments passed to Pandoc during document conversion.
 #' @param ... further arguments passed to \code{\link[rmarkdown]{pdf_document}}
 #' 
 #' @details The function serves as wrapper to \code{\link[rmarkdown]{pdf_document}}
