@@ -13,7 +13,7 @@
 #' only steering the selection of the template.
 #'
 #' @export
-businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE,...) {
+businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE, pandoc_args = NULL, ...) {
 
   # The following code is taken from rmarkdown::pdf_document() (v1.1)
   # template path and assets
@@ -39,7 +39,6 @@ businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE,...) {
       mustWork = TRUE
       )
     
-    
     filesToCopy <- unlist(lapply(path, list.files, full.names = FALSE))
     
     # remove `skeleton.Rmd` from `filesToCopy`
@@ -60,6 +59,6 @@ businessReport <- function(template = "INWTlab", resetStyleFiles = FALSE,...) {
   }
 
   # call the base pdf_document format with the appropriate options
-  pdf_document(template = template,  pandoc_args = c("--variable", "graphics=yes"), ...)
+  pdf_document(template = template,  pandoc_args = c(pandoc_args, "--variable", "graphics=yes"), ...)
 
 }
